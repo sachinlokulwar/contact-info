@@ -7,7 +7,7 @@
   </div>
   <div class="content-section">
     
-    <div class="row row-no-margin user-row" ng-repeat="user in userDetails">
+    <div ng-if="userDetails.length" class="row row-no-margin user-row" ng-repeat="user in userDetails">
       <div class="col-md-4">
         <span ng-class="{'active glyphicon glyphicon-ok-circle' : user.status == 'Active', 'inactive   glyphicon glyphicon-exclamation-sign' : user.status == 'Inactive'}" class="status-icon"></span>
         <span class="name">{{user.firstName}} {{user.lastName}}</span>
@@ -22,6 +22,9 @@
         <span class="glyphicon glyphicon-trash" ng-click="deleteContact(user)"></span>
         <span class="glyphicon glyphicon-pencil" ng-click="updateContact(user)"></span>
       </div>
+    </div>
+    <div ng-if="userDetails.length == 0">
+      <p class="no-record-msg">No records found... Please add new records</p>
     </div>
   </div>
   <div class="footer-section"></div>

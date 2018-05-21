@@ -5,24 +5,27 @@
 	<form name="form" id="create-user-form">
       <div class="form-group">
         <label for="name" class="control-label">First Name:</label>
-        <input type="text" ng-model="userDetail.firstName" name="fName" class="form-control" id="first-name" required >
+        <input type="text" ng-model="userDetail.firstName" name="fName" class="form-control" id="first-name" ng-pattern="nameRegex" required >
       </div>
       <div ng-show="form.$submitted || form.fName.$touched">
         <div class="error-msg" ng-show="form.fName.$error.required">Please enter your first name.</div>
+        <div class="error-msg" ng-show="!form.fName.$valid">Please enter valid first name.</div>
       </div>
       <div class="form-group">
         <label for="name" class="control-label">Last Name:</label>
-        <input type="text" ng-model="userDetail.lastName" class="form-control" name="lName" id="last-name" required >
+        <input type="text" ng-model="userDetail.lastName" class="form-control" name="lName" id="last-name" ng-pattern="nameRegex" required >
       </div>
       <div ng-show="form.$submitted || form.lName.$touched">
-        <div class="error-msg" ng-show="form.fName.$error.required">Please enter your last name.</div>
+        <div class="error-msg" ng-show="form.lName.$error.required">Please enter your last name.</div>
+        <div class="error-msg" ng-show="form.lName.$invalid">Please enter valid last name.</div>
       </div>
       <div class="form-group">
         <label for="phone" class="control-label">Phone No:</label>
-        <input type="text" class="form-control" ng-model="userDetail.phone" id="phone" name="phone" required >
+        <input type="text" class="form-control" ng-model="userDetail.phone" id="phone" name="phone" ng-pattern="mobileRegex" required >
       </div>
       <div ng-show="form.$submitted || form.phone.$touched">
-        <div class="error-msg" ng-show="form.fName.$error.required">Please enter your mobile no.</div>
+        <div class="error-msg" ng-show="form.phone.$error.required">Please enter your mobile no.</div>
+        <div class="error-msg" ng-show="form.phone.$invalid">Please enter valid mobile no.</div>
       </div>
       <div class="form-group">
         <label for="email" class="control-label">Email address:</label>
@@ -30,7 +33,7 @@
       </div>
       <div ng-show="form.$submitted || form.uEmail.$touched">
         <span class="error-msg" ng-show="form.uEmail.$error.required">Please enter your email.</span>
-        <span class="error-msg"ng-show="form.uEmail.$error.email">This is not a valid email.</span>
+        <span class="error-msg" ng-show="form.uEmail.$error.email">This is not a valid email.</span>
       </div>
       <div class="form-group">
         <input type="radio" ng-model="userDetail.status" value="Active">Active

@@ -10,6 +10,8 @@
 angular.module('contactInfoApp')
   .controller('MainCtrl', function ($scope, userFactory, $uibModal) {
 
+    $scope.mobileRegex = /^[789]\d{9}$/;
+    $scope.nameRegex = /^[A-Za-z]{2}$/;
   	function getUserDetails(){
       $scope.userDetails = userFactory.getUserDetails();
 	}
@@ -54,19 +56,25 @@ angular.module('contactInfoApp')
 
     $scope.createUser = function(){
       userFactory.addUserDetails($scope.userDetail);
-      $scope.userModal.close();
-      getUserDetails()
+      if($scope.userModal){
+        $scope.userModal.close();
+      }
+      getUserDetails();
     }
 
     $scope.deleteUser = function(){
       userFactory.deleteUserDetails($scope.userDetail.id);
-      $scope.userModal.close();
+      if($scope.userModal){
+        $scope.userModal.close();
+      }
       getUserDetails()
     }
 
     $scope.updateUser = function(){
       userFactory.updateUserDetails($scope.userDetail);
-      $scope.userModal.close();
+      if($scope.userModal){
+        $scope.userModal.close();
+      }
       getUserDetails()
     }
     getUserDetails()

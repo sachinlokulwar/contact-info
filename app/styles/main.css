@@ -74,9 +74,17 @@ body {
   margin-bottom: 10px;
   padding: 5px;
 }
-.modal-footer{
+.modal-body .modal-footer{
   padding: 15px 0px;
 }
 .error-msg{
   color:#d02a29;
+}
+.no-record-msg{
+  text-align: center;
+    margin-top : 1em;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.5);
+    line-height: 50px;
 }
