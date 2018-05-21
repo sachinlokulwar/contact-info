@@ -11,7 +11,7 @@ angular.module('contactInfoApp')
   .controller('MainCtrl', function ($scope, userFactory, $uibModal) {
 
     $scope.mobileRegex = /^[789]\d{9}$/;
-    $scope.nameRegex = /^[A-Za-z]{2}$/;
+    $scope.nameRegex = /^[A-Za-z]{2,20}$/;
   	function getUserDetails(){
       $scope.userDetails = userFactory.getUserDetails();
 	}

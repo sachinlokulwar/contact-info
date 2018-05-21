@@ -25,6 +25,7 @@ angular.module('contactInfoApp')
         return userDetails;
     }
     factory.updateUserDetails = function (newUserDetails) {
+    	var i;
     	for(i=0; i<userDetails.length; i++) {
     		if(userDetails[i].id == newUserDetails.id){
     			userDetails[i] = newUserDetails;
